@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  dev-echo-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dev-echo-server
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - PORT=${PORT:-3000}
+      - NODE_ENV=${NODE_ENV:-development}
+    volumes:
+      - ./log:/root/log
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
