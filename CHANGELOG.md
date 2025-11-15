@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-11-15
+
+### Added
+
+- Comprehensive godoc documentation for all packages
+- Package-level documentation for main, server, routes, and middleware
+- Detailed function and method documentation with parameters and return values
+- Usage examples in godoc format
+- doc.go file for main package with quick start guide
+- Code examples for library usage
+
+### Fixed
+
+- Empty documentation on pkg.go.dev
+- Missing godoc comments on exported types and functions
+
 ## [1.0.0] - 2025-11-15
 
 ### Added
