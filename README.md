@@ -1,6 +1,37 @@
 # Dev Echo Server
 
+[![Go Version](https://img.shields.io/github/go-mod/go-version/islamMaruf/dev-echo-server)](https://github.com/islamMaruf/dev-echo-server)
+[![Go Report Card](https://goreportcard.com/badge/github.com/islamMaruf/dev-echo-server)](https://goreportcard.com/report/github.com/islamMaruf/dev-echo-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub release](https://img.shields.io/github/release/islamMaruf/dev-echo-server.svg)](https://github.com/islamMaruf/dev-echo-server/releases)
+
 Development HTTP echo server that mirrors request data back. Useful for testing webhooks, API integrations, and debugging HTTP requests during development.
+
+## Installation
+
+### As a Go Package
+
+```bash
+go get github.com/islamMaruf/dev-echo-server
+```
+
+### As a Standalone Tool
+
+```bash
+# Install globally
+go install github.com/islamMaruf/dev-echo-server@latest
+
+# Run it
+dev-echo-server
+```
+
+### Clone and Run
+
+```bash
+git clone https://github.com/islamMaruf/dev-echo-server.git
+cd dev-echo-server
+./run.sh
+```
 
 ## Features
 
@@ -9,6 +40,33 @@ Development HTTP echo server that mirrors request data back. Useful for testing 
 - ✅ Error handling middleware
 - ✅ Environment-based configuration
 - ✅ Clean project structure
+
+## Usage
+
+### As a Library
+
+You can import and use the server components in your own Go applications:
+
+```go
+package main
+
+import (
+    "log"
+    "github.com/islamMaruf/dev-echo-server/server"
+)
+
+func main() {
+    srv := server.NewServer("8080")
+    log.Printf("Starting echo server on port 8080")
+    if err := srv.Start(); err != nil {
+        log.Fatal(err)
+    }
+}
+```
+
+### As a Standalone Application
+
+See the Quick Start section below.
 
 ## Getting Started
 

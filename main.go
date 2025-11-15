@@ -1,9 +1,10 @@
 package main
 
 import (
-	"dev-echo-server/server"
 	"log"
 	"os"
+
+	"github.com/islamMaruf/dev-echo-server/server"
 
 	"github.com/joho/godotenv"
 )

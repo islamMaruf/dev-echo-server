@@ -1,4 +1,4 @@
-module dev-echo-server
+module github.com/islamMaruf/dev-echo-server
 
 go 1.21
 

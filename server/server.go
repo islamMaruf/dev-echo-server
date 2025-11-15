@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"dev-echo-server/middleware"
-	"dev-echo-server/routes"
+	"github.com/islamMaruf/dev-echo-server/middleware"
+	"github.com/islamMaruf/dev-echo-server/routes"
 )
 
 type Server struct {
