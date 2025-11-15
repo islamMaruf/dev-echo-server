@@ -1,3 +1,5 @@
+// Package routes provides HTTP route handlers for the dev echo server.
+// It includes a welcome endpoint and a catch-all echo handler that mirrors request data.
 package routes
 
 import (
@@ -6,7 +8,18 @@ import (
 	"net/http"
 )
 
-// RegisterRoutes registers all application routes
+// RegisterRoutes registers all application routes with the provided HTTP multiplexer.
+// It configures:
+//   - GET / - Returns a welcome message
+//   - * /* - Catch-all route that echoes the request body back to the client
+//
+// Parameters:
+//   - mux: The HTTP multiplexer to register routes with
+//
+// Example:
+//
+//	mux := http.NewServeMux()
+//	routes.RegisterRoutes(mux)
 func RegisterRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/", combinedHandler)
 }

@@ -1,3 +1,4 @@
+// Package middleware provides HTTP middleware for logging, security, and error handling.
 package middleware
 
 import (
@@ -22,7 +23,25 @@ func (rw *responseWriter) WriteHeader(code int) {
 	rw.ResponseWriter.WriteHeader(code)
 }
 
-// Logger middleware logs requests in JSON format
+// Logger returns a middleware that logs HTTP requests to a file and console.
+// It captures request details including method, URI, status code, request body,
+// and response time. Each request is assigned a unique request ID for tracking.
+//
+// Parameters:
+//   - logFile: File to write JSON-formatted logs to. Pass nil to skip file logging.
+//
+// Returns:
+//   - A middleware function that wraps an http.Handler
+//
+// Logs include:
+//   - timestamp: ISO 8601 formatted timestamp
+//   - method: HTTP method (GET, POST, etc.)
+//   - URI: Request URI
+//   - status: HTTP response status code
+//   - requestBody: Parsed JSON request body (if present)
+//   - responseTime: Request duration in milliseconds
+//
+// Console logging is enabled only when NODE_ENV=development
 func Logger(logFile *os.File) func(http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
