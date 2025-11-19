@@ -56,7 +56,7 @@ A lightweight, developer-friendly HTTP echo server for testing webhooks, debuggi
 ### Option 1: Install as a CLI Tool (Recommended for quick usage)
 
 ```bash
-go install github.com/islamMaruf/dev-echo-server@v1.0.0
+go install github.com/islamMaruf/dev-echo-server@latest
 ```
 
 Then run:
@@ -67,7 +67,7 @@ dev-echo-server
 ### Option 2: Use as a Go Library
 
 ```bash
-go get github.com/islamMaruf/dev-echo-server@v1.0.0
+go get github.com/islamMaruf/dev-echo-server@latest
 ```
 
 Example usage:
